@@ -32,21 +32,20 @@ describe('HTTP server', () => {
   describe('When GET /', () => {
     it('should return 200 and hello world', async () => {
       // Arrange
-      const server = await createServer({})
+      const server = await createServer({});
 
       // Action
       const response = await server.inject({
         method: 'GET',
-        url: '/'
-      })
+        url: '/',
+      });
 
       // Assert
-      const responseJson = JSON.parse(response);
-      expect(response.statusCode).toEqual(200)
-      expect(responseJson.value).toEqual('Hello World!')
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.value).toEqual('Hello World!');
     });
   });
-  
 
   describe('when POST /users', () => {
     it('should response 201 and persisted user', async () => {
