@@ -4,4 +4,4 @@ node_modules
 package-lock.json
 pnpm-lock.yaml
 coverage
-auth-api/config/database/test.json
+config/database/test.json
