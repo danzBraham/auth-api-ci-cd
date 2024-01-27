@@ -20,6 +20,8 @@ jobs:
         script: |
           cd ~/auth-api
           git pull origin main
-          nvm run 14.17.0 npm install
-          nvm run 14.17.0 npm run migrate up
-          nvm run 14.17.0 pm2 restart auth-api
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+          nvm install 14.17.0
+          npm install
+          npm run migrate up
+          pm2 restart auth-api
